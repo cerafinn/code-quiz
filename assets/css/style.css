@@ -1,0 +1,42 @@
+:root {
+  --primary: #561375;
+  --secondary: #bd3ef8;
+  --tertiary: #6c3b83;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.high-scores {
+  color: var(--secondary);
+}
+
+div {
+  padding: 50px 200px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+button {
+  background-color: var(--primary);
+  color: white;
+  font-size: 20px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  outline: none;
+}
+
+.question {
+  font-size: 44px;
+}
+
+button:hover {
+  background-color: var(--secondary);
+}
