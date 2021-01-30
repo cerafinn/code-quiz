@@ -24,7 +24,6 @@ header {
   list-style-type: none;
 }
 
-
 #intro {
   text-align: center;
 }
@@ -46,11 +45,15 @@ button:hover {
   background-color: var(--secondary);
 }
 
+#choices button {
+  width: 50%;
+}
+
 #scoreEntry {
   display: none;
 }
 
-#initials {
+#userInitials {
   margin: 0 10px;
   padding: 5px;
   font-size: 20px;

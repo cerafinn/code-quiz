@@ -23,29 +23,29 @@ scoreBtn.addEventListener("click", addScore);
 //array with questions
 var codeQuestions = [
   {
-    question: "An if/else statement is enclosed with ______________.",
+    question: "An if/else statement is enclosed with:",
     possibleAnswers: ["Parentheses", "Curly Brackets", "Square Brackets", "Quotations"],
     correctAnswer: "Curly Brackets" 
   },
   {
-    question: "To target HTML element, you would target it by its _______",
+    question: "To target HTML element, you would target it by its:",
     possibleAnswers: ["Class", "Title", "ID", "Semantic tag"],
     correctAnswer: "ID"
   },
   {
-    question: "Question",
-    possibleAnswers: ["A", "B", "C", "D"],
-    correctAnswer: "B" 
+    question: "Where is the right place to put a Javascript?",
+    possibleAnswers: ["The head section", "The body section", "Neither the body or head sections", "Either the body or head sections"],
+    correctAnswer: "The body section"
   },
   {
-    question: "Question",
-    possibleAnswers: ["A", "B", "C", "D"],
-    correctAnswer: "D" 
+    question: "Which value is not a falsy value?",
+    possibleAnswers: ["False", "Null", "Undefined", "Unknown"],
+    correctAnswer: "Unknown" 
   },
   {
-    question: "Question",
-    possibleAnswers: ["A", "B", "C", "D"],
-    correctAnswer: "A" 
+    question: "Where should you declare global variables?",
+    possibleAnswers: ["At the beginning of the .js file", "Inside a variable", "At the end of the .js file", "Nowhere"],
+    correctAnswer: "At the beginning of the .js file" 
   },
 ];
 
