@@ -1,13 +1,19 @@
 // I need a variable for:
-var timer = document.getElementById("timer");
-var currentScore = 0;
+var timer = document.querySelector("#timer");
+var timerCountdown;
+var secondsLeft = 75;
 var wrongAnswer = 10;
-var quizQuestion = document.getElementById("quiz");
-var quizChoices = document.getElementById("choices");
+var currentScore = 0;
+var quizQuestion = document.querySelector("#quizQuestion");
+var quizChoices = document.querySelector("#choices");
+var introP = document.querySelector("#intro");
+var startBtn = document.querySelector("#startBtn")
+var questionIndex = 0;
 
+startBtn.addEventListener("click", startGame);
 
 //array with questions
-var quizQuestions = [
+var codeQuestions = [
   {
     question: "An if/else statement is enclosed with ______________.",
     possibleAnswers: ["Parentheses", "Curly Brackets", "Square Brackets", "Quotations"],
@@ -37,41 +43,71 @@ var quizQuestions = [
 
 
 // timer that starts on click of button
-
 //game ends when timer ends or end of questions
-var endGame = function() {
+function endGame() {
   //enter high score
-
+  clearInterval(timerCountdown);
   //save in localstorage
   
   //display current high scores
 };
 
-var showHighScore = function() {
+function showHighScore() {
   //load from local storage
   //display on highscore.html page
 };
 
 //present and loop through questions
-var answerQuestion = function() {
-  if {}
-  //answer correct, move to next question
-  else {}
-  //answer incorrect, deduct points and move to next question
+function answerQuestion(event) {
+  if(codeQuestions[questionIndex].correctAnswer === this.textContent) {
+    currentScore++;
+    questionIndex++;
+    nextQuestion();
+  }
+  //answer incorrect
+  else(codeQuestions[questionIndex].correctAnswer !== this.textContent) {
+    secondsLeft -= wrongAnswer;
+    if(secondsLeft<= 0) {
+      endGame()
+    };
+    timer.textContent = "Time: " + secondsLeft;
+    questionIndex++;
+    nextQuestion();
+  }
 }
 
 //start game and timer on button click
-var startGame = function() {
-  //Show start quiz page
-
+function startGame() {
   //start timer on click
+  timer.textContent = "Time: " + secondsLeft;
+  timerCountdown = setInterval( function() {
+    secondsLeft--;
+    timer.textContent = "Time: " + secondsLeft;
+    if(secondsLeft <= 0) {
+      endGame();
+    }
+  },
+    1000)
+  
+    startBtn.setAttribute("style", "display: none");
+    introP.setAttribute("style", "display: none");
 
-  //show first question and create loop in answerQuestion fucntion
-  for (var i=0; i< quizQuestions.length; i++) {
-    document.getElementById("quizQuestions").textContent();
+  nextQuestion();
+}
+
+function nextQuestion() {
+  if(codeQuestions[questionIndex] === undefined) {
+    endGame()
+  };
+
+  quizQuestion.textContent = codeQuestions[questionIndex].question;
+
+  for(var i = 0; i < codeQuestions[questionIndex].possibleAnswers.length; i ++) {
+    var choiceOption = document.createElement("li");
+    var choiceBtn = document.createElement("button");
+    choiceBtn.textContent = codeQuestions[questionIndex].possibleAnswers[i];
+    choiceOption.appendChild(choiceBtn);
+    quizChoices.appendChild(choiceOption);
   }
-
-  //question should appear in h2 and answers should be list items in ol as buttons
+  //on click, start the answerQuestion function
 };
-
-startGame();
