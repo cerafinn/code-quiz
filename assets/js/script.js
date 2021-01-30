@@ -13,7 +13,7 @@ var quizDiv = document.querySelector("#quiz");
 var scoreDiv = document.querySelector("#scoreEntry");
 var endScore = document.querySelector("#score");
 var scoreBtn = document.querySelector("#scoreBtn");
-
+var inputName = document.querySelector("#initals");
 var questionIndex = 0;
 
 startBtn.addEventListener("click", startGame);
@@ -62,6 +62,8 @@ function endGame() {
 };
 
 function saveScore() {
+  localStorage.setItem("initials", inputName.value);
+  localStorage.setItem("score", currentScore);
 }
 
 function showHighScore() {
