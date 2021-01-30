@@ -1,5 +1,6 @@
 // I need a variable for:
 var timerCountdown;
+var initials;
 var secondsLeft = 75;
 var wrongAnswer = 10;
 var currentScore = 0;
@@ -11,12 +12,13 @@ var introP = document.querySelector("#intro");
 var startBtn = document.querySelector("#startBtn");
 var quizDiv = document.querySelector("#quiz");
 var scoreDiv = document.querySelector("#scoreEntry");
-var endScore = document.querySelector("#score");
+var endScore = document.querySelector("#finalScore");
 var scoreBtn = document.querySelector("#scoreBtn");
-var inputName = document.querySelector("#initals");
+var initialsInput = document.querySelector("#userInitials");
 var questionIndex = 0;
 
 startBtn.addEventListener("click", startGame);
+scoreBtn.addEventListener("click", addScore);
 
 //array with questions
 var codeQuestions = [
@@ -58,12 +60,26 @@ function endGame() {
   scoreDiv.setAttribute("style", "display: block");
   endScore.textContent = "Your final score is " + currentScore + ". Enter your initials below:";
   //save in localstorage
-  scoreBtn.addEventListener("click", saveScore())
-};
+}
 
-function saveScore() {
-  localStorage.setItem("initials", inputName.value);
-  localStorage.setItem("score", currentScore);
+function addScore() {
+  initials = initialsInput.value.toUpperCase();
+  if(initials === null) {
+    alert("You need to enter your initials!")
+  }
+
+  var setScore = {
+    initial: initials,
+    score: currentScore
+  }
+  console.log(setScore);
+
+  var scoreArray = JSON.parse(localStorage.getItem("scoreArray"));
+  if (scoreArray == null) {
+    scoreArray =[]
+  }
+  scoreArray.push(setScore);
+  localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
 }
 
 function showHighScore() {
