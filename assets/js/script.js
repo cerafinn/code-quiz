@@ -1,15 +1,17 @@
 // I need a variable for:
-var timer = document.querySelector("#timer");
 var timerCountdown;
 var secondsLeft = 75;
 var wrongAnswer = 10;
 var currentScore = 0;
+
+var timer = document.querySelector("#timer");
 var quizQuestion = document.querySelector("#quizQuestion");
 var quizChoices = document.querySelector("#choices");
 var introP = document.querySelector("#intro");
 var startBtn = document.querySelector("#startBtn")
 var quizDiv = document.querySelector("#quiz")
-var quizDiv = document.querySelector("#highScore")
+var scoreDiv = document.querySelector("#scoreEntry")
+var endScore = document.querySelector("#score")
 var questionIndex = 0;
 
 startBtn.addEventListener("click", startGame);
@@ -50,10 +52,12 @@ function endGame() {
   quizDiv.innerHTML = "";
 
   currentScore += secondsLeft;
-  //enter high score
   clearInterval(timerCountdown);
 
-  highScore.setAttribute("style", "display: block")
+  //enter high score
+  quizDiv.setAttribute("style", "display: none");
+  scoreDiv.setAttribute("style", "display: block");
+  endScore.textContent = "Your final score is " + currentScore;
   //save in localstorage
   
   //display current high scores

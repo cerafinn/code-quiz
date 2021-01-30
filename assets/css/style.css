@@ -40,3 +40,7 @@ button {
 button:hover {
   background-color: var(--secondary);
 }
+
+#scoreEntry {
+  display: none;
+}
