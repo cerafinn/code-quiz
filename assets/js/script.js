@@ -8,10 +8,12 @@ var timer = document.querySelector("#timer");
 var quizQuestion = document.querySelector("#quizQuestion");
 var quizChoices = document.querySelector("#choices");
 var introP = document.querySelector("#intro");
-var startBtn = document.querySelector("#startBtn")
-var quizDiv = document.querySelector("#quiz")
-var scoreDiv = document.querySelector("#scoreEntry")
-var endScore = document.querySelector("#score")
+var startBtn = document.querySelector("#startBtn");
+var quizDiv = document.querySelector("#quiz");
+var scoreDiv = document.querySelector("#scoreEntry");
+var endScore = document.querySelector("#score");
+var scoreBtn = document.querySelector("#scoreBtn");
+
 var questionIndex = 0;
 
 startBtn.addEventListener("click", startGame);
@@ -45,23 +47,22 @@ var codeQuestions = [
   },
 ];
 
-
-// timer that starts on click of button
 //game ends when timer ends or end of questions
 function endGame() {
   quizDiv.innerHTML = "";
-
   currentScore += secondsLeft;
   clearInterval(timerCountdown);
+  timer.innerHTML = "";
 
   //enter high score
-  quizDiv.setAttribute("style", "display: none");
   scoreDiv.setAttribute("style", "display: block");
-  endScore.textContent = "Your final score is " + currentScore;
+  endScore.textContent = "Your final score is " + currentScore + ". Enter your initials below:";
   //save in localstorage
-  
-  //display current high scores
+  scoreBtn.addEventListener("click", saveScore())
 };
+
+function saveScore() {
+}
 
 function showHighScore() {
   //load from local storage

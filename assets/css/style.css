@@ -44,3 +44,9 @@ button:hover {
 #scoreEntry {
   display: none;
 }
+
+#initials {
+  margin: 0 10px;
+  padding: 5px;
+  font-size: 20px;
+}
