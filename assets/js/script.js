@@ -58,7 +58,7 @@ function endGame() {
 
   //enter high score
   scoreDiv.setAttribute("style", "display: block");
-  endScore.textContent = "Your final score is " + currentScore + ". Enter your initials below:";
+  endScore.textContent = "Your final score is " + currentScore + ".";
   //save in localstorage
 }
 
@@ -80,12 +80,8 @@ function addScore() {
   }
   scoreArray.push(setScore);
   localStorage.setItem("scoreArray", JSON.stringify(scoreArray));
+  window.location.replace("./high-scores.html");
 }
-
-function showHighScore() {
-  //load from local storage
-  //display on highscore.html page
-};
 
 //present and loop through questions
 function answerQuestion(event) {
@@ -140,6 +136,7 @@ function nextQuestion() {
 
   for(var i = 0; i < codeQuestions[questionIndex].possibleAnswers.length; i ++) {
     var choiceOption = document.createElement("li");
+    choiceOption.setAttribute("style", "line-height: 3")
     var choiceBtn = document.createElement("button");
     choiceBtn.textContent = codeQuestions[questionIndex].possibleAnswers[i];
     choiceBtn.addEventListener("click", answerQuestion);

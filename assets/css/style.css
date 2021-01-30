@@ -18,10 +18,15 @@ header {
   color: var(--secondary);
 }
 
-div {
-  padding: 50px 200px;
-  text-align: center;
+#quiz, #scoreEntry {
+  padding: 50px 150px;
   margin: 0 auto;
+  list-style-type: none;
+}
+
+
+#intro {
+  text-align: center;
 }
 
 button {
