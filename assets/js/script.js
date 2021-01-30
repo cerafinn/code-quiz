@@ -8,6 +8,8 @@ var quizQuestion = document.querySelector("#quizQuestion");
 var quizChoices = document.querySelector("#choices");
 var introP = document.querySelector("#intro");
 var startBtn = document.querySelector("#startBtn")
+var quizDiv = document.querySelector("#quiz")
+var quizDiv = document.querySelector("#highScore")
 var questionIndex = 0;
 
 startBtn.addEventListener("click", startGame);
@@ -45,8 +47,13 @@ var codeQuestions = [
 // timer that starts on click of button
 //game ends when timer ends or end of questions
 function endGame() {
+  quizDiv.innerHTML = "";
+
+  currentScore += secondsLeft;
   //enter high score
   clearInterval(timerCountdown);
+
+  highScore.setAttribute("style", "display: block")
   //save in localstorage
   
   //display current high scores
@@ -62,17 +69,26 @@ function answerQuestion(event) {
   if(codeQuestions[questionIndex].correctAnswer === this.textContent) {
     currentScore++;
     questionIndex++;
-    nextQuestion();
+    if(questionIndex == codeQuestions.length) {
+      endGame()
+    }  
+    else {nextQuestion()
+    };
   }
   //answer incorrect
-  else(codeQuestions[questionIndex].correctAnswer !== this.textContent) {
+  else {
     secondsLeft -= wrongAnswer;
     if(secondsLeft<= 0) {
       endGame()
     };
     timer.textContent = "Time: " + secondsLeft;
     questionIndex++;
-    nextQuestion();
+    if(questionIndex == codeQuestions.length) {
+      endGame()
+    }
+    else{
+      nextQuestion()
+    };
   }
 }
 
@@ -96,16 +112,14 @@ function startGame() {
 }
 
 function nextQuestion() {
-  if(codeQuestions[questionIndex] === undefined) {
-    endGame()
-  };
-
+  quizChoices.innerHTML = ""
   quizQuestion.textContent = codeQuestions[questionIndex].question;
 
   for(var i = 0; i < codeQuestions[questionIndex].possibleAnswers.length; i ++) {
     var choiceOption = document.createElement("li");
     var choiceBtn = document.createElement("button");
     choiceBtn.textContent = codeQuestions[questionIndex].possibleAnswers[i];
+    choiceBtn.addEventListener("click", answerQuestion);
     choiceOption.appendChild(choiceBtn);
     quizChoices.appendChild(choiceOption);
   }
