@@ -1,25 +1,61 @@
 # Code Quiz
-Created a code quiz
+
+## Description
+JavaScript quiz that runs on a timer and high score list.
+
+
+
+Table of Contents |
+-------------------|
+[Usage](#Usage)
+[Technologies](#Technologies)
+[Screenshots](#Screenshots)
+[Contributing](#Contributing)
+[Author](#Author)
+[Questions](#Questions)
 
 <br />
 
-## General Information
-The website contains a short Javascript quiz. There is a timer and the scores are saved to the local storage
+## Usage
+
+The website allows users to take short quiz on JavaScript. The quiz includes a timer that counts down. For every correct answer, the score increases. For every incorrect answer, a score penalty is applied.
+
+The website uses Local Storage in order to save high scores in order to display them on the high score page.
+
+You can find the deployed link and the repository link below:
+
+Deployed Link: [Deployed Link](https://cerafinn.github.io/code-quiz)
+
+Repo Link: [Repo Link](https://github.com/cerafinn/code-quiz)
 
 <br />
 
-## Build With
+## Technologies
+
 * HTML
 * CSS
-* Javascript
+* JavaScript
+* Web API
 
 <br />
 
-## Website
-https://cerafinn.github.io/code-quiz
+## Screenshots
 
-## Screenshot
-![Code Quiz](./assets/images/code-quiz.gif)
+![IMG](./assets/images/code-quiz-screenshot.png)
 
-## Contribution
-Created with ❤️ by Andaleeb Farooq
+## Contributing
+
+If interested in contributing to the project, feel free to reach out. Contact information can be found in the Questions section.
+
+<br />
+
+## Author
+
+Andaleeb Farooq: [:octocat:](https://github.com/cerafinn)
+
+<br />
+
+## Questions
+
+If you have any questions or issues, feel free to reach out at: andaleeb.farooq@gmail.com.
+You can also find more of my work on Github at [github link](https://github.com/cerafinn).
